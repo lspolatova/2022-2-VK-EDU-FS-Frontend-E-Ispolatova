@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>Send a message</title>     
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="style.css" rel="stylesheet"></head>
+
+    <body>
+        <style>
+            .small_elements_top {
+                margin-left: auto;
+                background-color: rgb(142, 36, 170);
+                color: rgb(206,147,216);
+                font-size: 35px;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                padding-top: 1rem;
+            }
+
+            .white_elements_top {
+                background-color: rgb(142, 36, 170);
+                color: white;
+                font-size: 50px;
+                margin-bottom: 1rem;
+                margin-top: 2rem;
+                margin-left: 2rem;
+                display: flex;
+            }
+
+            .break {
+                flex-basis: 100%;
+                height: 0.5rem;
+            }
+
+            .display {
+                width: 100%;
+                height: 113rem;
+                display: flex;
+                background-color: rgb(245,245,245);
+                flex-wrap: wrap;
+                overflow-y: auto;
+            }
+
+            .form {
+                width: 100%;
+                display: flex;
+                color: rgba(25, 25, 25, 0.32);
+                border: 1px solid rgba(25, 25, 25, 0.32);
+                margin-bottom: auto;
+                zoom: 5;
+            }
+
+            .message {
+                margin: 1px;
+                font-size: 50px;
+            }
+
+            .time_massege {
+                margin-left: auto; 
+                font-size: 30px;
+                color: rgba(25, 25, 25, 0.32);
+                margin-bottom: 0.05rem;
+                margin-top: 0.05rem;
+            }
+
+            .speech {
+                background-color: rgb(243,229,245);
+                margin-top: auto;
+                margin-left: auto;
+                line-height:1.5;
+                width: max-content;
+                position: relative;
+                margin-right: 3rem;
+                padding: 1rem;
+                border-radius: 10px;
+                max-width: 50%;
+                overflow-wrap: anywhere; 
+                display: flex;
+                flex-direction: column;
+            }
+
+            .speech .tip {
+                content: "";
+                position: absolute;
+                bottom: 5%;
+                left: 100%;
+                height: 30px;
+                width: 50px;
+                background: inherit;
+                clip-path: polygon(0 0, 0% 100%, 100% 100%);
+            } 
+
+            input[type=submit] {
+                visibility: collapse;
+            }
+
+            input {
+                border: 0;
+                outline: none;
+                width: calc(100% - 2px);
+            }
+            
+        </style>
+        <div style = "background-color:rgb(142, 36, 170); display: flex; flex-wrap: wrap;">
+            <div class="small_elements_top">
+                <div class="material-icons" style="font-size: 35px;">square</div>
+                <div class="material-icons" style="font-size: 35px;">circle</div>
+                <div class="material-icons" style="font-size: 35px;">tornado</div>
+            </div>
+            <div class="break"></div>
+            <div class="white_elements_top">
+                <div class="material-icons" style="font-size: 70px; margin-left: 1rem; padding-top: 1rem;">arrow_back</div>
+                <div class="material-icons", style="font-size: 120px; margin-left: 5rem;">account_circle</div>
+            </div>
+            <div>
+                <div class="white_elements_top" style="padding-top: 1.5rem;">Дженнифер</div>
+                <div class="break"></div>
+                <div class="small_elements_top">была 2 часа назад</div>
+            </div>
+            <div class="white_elements_top">
+                <div class="material-icons" style="font-size: 70px; margin-left: 4rem; padding-top: 1rem;">search</div>
+                <div class="material-icons" style="font-size: 70px; margin-left: 4rem; padding-top: 1rem;">more_vert</div>
+            </div>
+            <div class="break"></div>
+        </div>
+        
+        <div class="display">
+        </div>
+        
+        <form class="form" action="/">
+            <input class="form-input" name="message-text" placeholder="Cообщение" type="text">
+            <i style="transform: rotate(90deg);" class="material-icons">attach_file</i>
+        </form>
+
+        <script>
+            const form = document.querySelector('form');
+            const input = document.querySelector('.form-input');
+            const display = document.querySelector('.display');
+            let index = '0'
+
+            function rendering_messages(message, time){
+                const new_speech = document.createElement('div');
+                new_speech.className = "speech";
+                const new_message = document.createElement('p');
+                new_message.className = "message";
+                new_message.textContent = message;
+                new_speech.append(new_message);
+                const new_time = document.createElement('p');
+                new_time.className = "time_massege";
+                new_time.textContent = time;
+                new_speech.append(new_time);              
+                const new_tip = document.createElement('span');
+                new_tip.className = 'tip';
+                new_speech.append(new_tip);
+                display.append(new_speech);
+                const new_break = document.createElement('div');
+                new_break.className = "break"
+                display.append(new_break); 
+            }
+
+            while(localStorage.getItem(index)){
+                rendering_messages(JSON.parse(localStorage.getItem(index)).message, JSON.parse(localStorage.getItem(index)).time_loc)
+                index = (parseInt(index) + 1).toString();
+            }
+        
+            form.addEventListener('keypress', this.handleKeyPress.bind(this));
+
+            function handleSubmit (event) {
+                let now = new Date();
+                rendering_messages(input.value, now.toLocaleTimeString().slice(0, -3))
+                const loc = {
+                    sender: 'sender', 
+                    time_loc: now.toLocaleTimeString().slice(0, -3),
+                    message:  input.value
+                };
+                localStorage.setItem(index,  JSON.stringify(loc));
+                index = (parseInt(index) + 1).toString();
+                input.value = "";
+            }
+
+            function handleKeyPress (event) {
+                if (event.keyCode === 13) {
+                    handleSubmit(event);
+                }
+            }
+        </script>
+    <script type="text/javascript" src="bundle.js"></script></body>
+</html>
