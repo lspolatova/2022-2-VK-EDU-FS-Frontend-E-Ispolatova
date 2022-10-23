@@ -45,5 +45,9 @@ function rendering_chat(last_message, last_time, colvo){
     list_chats.append(chat);
 }
 for (let i = 0; i < 20; i++) {
-    rendering_chat(JSON.parse(localStorage.getItem(max_index.index)).message, JSON.parse(localStorage.getItem(max_index.index)).time_loc, (parseInt(max_index.index) + 1).toString());
+    if(localStorage.getItem(max_index.index)){
+        rendering_chat(JSON.parse(localStorage.getItem(max_index.index)).message, JSON.parse(localStorage.getItem(max_index.index)).time_loc, (parseInt(max_index.index) + 1).toString());
+    }else{
+        rendering_chat(" ", " ", (parseInt(max_index.index) + 1).toString());
+    }
 }
