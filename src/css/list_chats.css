@@ -8,56 +8,87 @@
 }
 
 .chat {
+    transition: background-color 1s;
     display: flex;
+}
+
+.chat:hover{
+    background-color:lavender;
+}
+
+.chat:active{
+    background-color: aqua;
 }
 
 .avatar {
     background-color: white;
     color:aqua;
-    font-size: 50px;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    margin-left: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
     display: flex;
 }
 
 .info_chat {
-    border-color: white white gray white;
-    border-style: solid;
+    
+    border-bottom-color: gray;
+    border-bottom-style: solid;
     display: flex;
-    font-size: 50px;
+    font-size: 1.75rem;
     margin-bottom: 1rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-left: 1rem;
 }
 
 .indicators{
-    margin-left: 28rem;
-    margin-top: 1rem;
+    margin-left: 5rem;
     display: flex;
     flex-wrap: wrap;
-    margin-right: 2rem;
+    margin-right: 1rem;
 }
 
 .not_read {
     color: white;
     background-color: rgb(142, 36, 170);
-    font-size: 30px;
+    font-size: 1rem;
     margin-left: auto;
     margin-bottom: auto;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     padding: 0.5rem;
     border-radius: 10px;
 }
 
 .fixedbut {
     position: fixed;
-    bottom: 5rem;
-    right: 3rem;
+    bottom: 1rem;
+    right: 1rem;
     display: block;
     background: rgb(255,213,79);
     color: rgb(117,97,36);
-    padding: 3rem;
+    padding: 1.5rem;
     border-radius: 50%;
+    box-shadow: 0 0 0 0 rgb(255,213,79);
+	transform: scale(1);
+}
+
+.fixedbut:hover {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgb(221, 208, 167);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
 }
 

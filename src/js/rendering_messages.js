@@ -22,7 +22,8 @@ function rendering_messages(message, time){
     display.append(new_speech);
     const new_break = document.createElement('div');
     new_break.className = "break"
-    display.append(new_break); 
+    display.append(new_break);
+    display.scrollTo(0, display.scrollHeight)
 }
 
 while(parseInt(index) <= parseInt(max_index.index)){

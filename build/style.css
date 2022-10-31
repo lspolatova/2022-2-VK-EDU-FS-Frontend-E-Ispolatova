@@ -5,7 +5,7 @@
 
 .small_message {
     margin-left: auto; 
-    font-size: 30px;
+    font-size: 1rem;
     color: rgba(25, 25, 25, 0.32);
     margin-bottom: 0.05rem;
     margin-top: 0.05rem;
