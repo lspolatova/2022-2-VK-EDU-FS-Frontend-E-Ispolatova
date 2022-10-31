@@ -1,0 +1,135 @@
+.break {
+    flex-basis: 100%;
+    height: 0.5rem;
+}
+
+.small_message {
+    margin-left: auto; 
+    font-size: 1rem;
+    color: rgba(25, 25, 25, 0.32);
+    margin-bottom: 0.05rem;
+    margin-top: 0.05rem;
+}
+
+.cap {
+    background-color:rgb(142, 36, 170);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.small_elements_top {
+    margin-left: auto;
+    background-color: rgb(142, 36, 170);
+    color: rgb(206,147,216);
+    padding: 0.5rem;
+}
+
+.white_elements_top {
+    background-color: rgb(142, 36, 170);
+    color: white;
+    padding: 1rem;
+    display: flex;
+}
+
+.cap .material-icons {
+    transition: color 1s;
+}
+
+.cap .material-icons:active{
+    color:aqua;
+}
+.list_chats {
+    width: 100%;
+    height: 130rem;
+    display: flex;
+    background-color: white;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+.chat {
+    transition: background-color 1s;
+    display: flex;
+}
+
+.chat:hover{
+    background-color:lavender;
+}
+
+.chat:active{
+    background-color: aqua;
+}
+
+.avatar {
+    background-color: white;
+    color:aqua;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+    display: flex;
+}
+
+.info_chat {
+    
+    border-bottom-color: gray;
+    border-bottom-style: solid;
+    display: flex;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.indicators{
+    margin-left: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 1rem;
+}
+
+.not_read {
+    color: white;
+    background-color: rgb(142, 36, 170);
+    font-size: 1rem;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+.fixedbut {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    display: block;
+    background: rgb(255,213,79);
+    color: rgb(117,97,36);
+    padding: 1.5rem;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgb(255,213,79);
+	transform: scale(1);
+}
+
+.fixedbut:hover {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgb(221, 208, 167);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}
+
+
