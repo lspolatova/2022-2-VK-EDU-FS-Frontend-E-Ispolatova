@@ -5,7 +5,7 @@ function rendering_chat(last_message, last_time, colvo){
     const chat = document.createElement('article');
     chat.className = "chat";
     chat.onclick = function(event) {
-        window.location.href = '/src/chat.html';
+        window.location.href = './chat.html';
     };
     const avatar = document.createElement('div');
     avatar.className = "avatar";
