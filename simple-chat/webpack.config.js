@@ -13,10 +13,12 @@ module.exports = {
     context: SRC_PATH,
     entry: {
         index: './index.js',
+        chat: './chat.js'
     },
     output: {
         path: BUILD_PATH,
-        filename: 'bundle.js'
+        filename: '[name].js',
+        library: '[name]'
     },
     module: {
         strictExportPresence: true,
@@ -43,7 +45,7 @@ module.exports = {
                 ],
             },
             {
-                test: /index\.css$/,
+                test: /\.css$/,
                 include: SRC_PATH,
                 use: [
                     {
@@ -58,11 +60,15 @@ module.exports = {
     },
     plugins: [
         new MiniCSSExtractPlugin({
-            filename: 'style.css',
+            filename: '[name].css',
         }),
         new HTMLWebpackPlugin({
             filename: 'index.html',
             template: './index.html'
-        })
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'chat.html',
+            template: './chat.html'
+        }),
     ]
 };
