@@ -64,11 +64,13 @@ module.exports = {
         }),
         new HTMLWebpackPlugin({
             filename: 'index.html',
-            template: './index.html'
+            template: './index.html',
+            chunks: ['index']
         }),
         new HTMLWebpackPlugin({
             filename: 'chat.html',
-            template: './chat.html'
+            template: './chat.html',
+            chunks: ['chat']
         }),
     ]
 };
