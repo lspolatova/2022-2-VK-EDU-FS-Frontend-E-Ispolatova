@@ -4,7 +4,7 @@
     color: rgba(25, 25, 25, 0.32);
     border: 1px solid rgba(25, 25, 25, 0.32);
     margin-bottom: auto;
-    zoom: 5;
+    zoom: 2;
 }
 
 input[type=submit] {
@@ -15,4 +15,12 @@ input {
     border: 0;
     outline: none;
     width: calc(100% - 2px);
+}
+
+.form .material-icons {
+    transition: color 1s;
+}
+
+.form .material-icons:active {
+    color:aqua;
 }
