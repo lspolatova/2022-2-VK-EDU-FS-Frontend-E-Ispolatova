@@ -84,3 +84,30 @@ input {
     color:aqua;
 }
 
+.cap {
+    background-color:rgb(142, 36, 170);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.small_elements_top {
+    margin-left: auto;
+    background-color: rgb(142, 36, 170);
+    color: rgb(206,147,216);
+    padding: 0.5rem;
+}
+
+.white_elements_top {
+    background-color: rgb(142, 36, 170);
+    color: white;
+    padding: 1rem;
+    display: flex;
+}
+
+.cap .material-icons {
+    transition: color 1s;
+}
+
+.cap .material-icons:active{
+    color:aqua;
+}
