@@ -5,13 +5,13 @@ function rendering_chat(last_message, last_time, colvo){
     const chat = document.createElement('article');
     chat.className = "chat";
     chat.onclick = function(event) {
-        window.location.href = 'chat.html';
+        window.location.href = './chat.html';
     };
     const avatar = document.createElement('div');
     avatar.className = "avatar";
     const icons = document.createElement('div');
     icons.className = "material-icons";
-    icons.style = "font-size: 120px;";
+    icons.style = "font-size: 3.5rem;";
     icons.textContent = "account_circle";
     avatar.append(icons);
     chat.append(avatar);
