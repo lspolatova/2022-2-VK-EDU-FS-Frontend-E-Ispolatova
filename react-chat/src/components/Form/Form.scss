@@ -1,0 +1,25 @@
+.form {
+    width: 100%;
+    display: flex;
+    color: rgba(25, 25, 25, 0.32);
+    border: 1px solid rgba(25, 25, 25, 0.32);
+    margin-bottom: auto;
+    zoom: 2;
+    svg{
+        transition: color 1s;
+        transform: rotate(90deg);
+        &:active{
+            color:aqua;
+        }
+    }
+}
+
+input[type=submit] {
+    visibility: collapse;
+}
+
+input {
+    border: 0;
+    outline: none;
+    width: calc(100% - 2px);
+}

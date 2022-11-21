@@ -1,0 +1,50 @@
+.chat {
+    transition: background-color 1s;
+    display: flex;
+    svg{
+        background-color: white;
+        color:aqua;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        margin-left: 0.5rem;
+        display: flex;
+        font-size: 3.5rem;
+    }
+}
+
+.info_chat {
+    
+    border-bottom-color: gray;
+    border-bottom-style: solid;
+    display: flex;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.small_message {
+    margin-left: auto; 
+    font-size: 1rem;
+    color: rgba(25, 25, 25, 0.32);
+    margin-bottom: 0.05rem;
+    margin-top: 0.05rem;
+}
+
+.indicators{
+    margin-left: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 1rem;
+}
+
+.not_read {
+    color: white;
+    background-color: rgb(142, 36, 170);
+    font-size: 1rem;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
