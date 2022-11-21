@@ -16,7 +16,7 @@ class App extends React.Component {
     }
 
     render() {
-        if(this.state.page == 'chat_list'){
+        if(this.state.page === 'chat_list'){
             return(<Chat_list changePage = {this.changePage}/>)
         }else{
             return(<ChatPage/>)
