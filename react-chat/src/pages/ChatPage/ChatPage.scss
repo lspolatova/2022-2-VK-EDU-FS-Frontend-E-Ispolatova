@@ -1,0 +1,12 @@
+#ChatPage{
+    .cap{
+        &>svg{
+            font-size: 2.5rem;
+            padding: 0.4rem;
+        }
+        .page_name{
+            font-size:2rem;
+            padding: 0.4rem;
+        }
+    }
+}
