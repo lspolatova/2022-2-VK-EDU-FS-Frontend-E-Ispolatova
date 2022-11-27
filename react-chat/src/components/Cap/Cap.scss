@@ -1,0 +1,32 @@
+.cap {
+    background-color:rgb(142, 36, 170);
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    height: 150px;
+    width: 100%;
+    z-index:1;
+    .small_elements_top{
+        margin-left: auto;
+        background-color: rgb(142, 36, 170);
+        color: rgb(206,147,216);
+        padding: 0.5rem;
+        svg{
+            font-size: 1rem;
+        }
+    }
+    &>svg, .page_name{
+        background-color: rgb(142, 36, 170);
+        color: white;
+        display: flex;
+        flex-grow: 1;
+        font-size: 2rem;
+        padding: 1rem;
+    }
+    svg {
+        transition: color 1s;
+        &:active{
+            color:aqua;
+        }
+    }
+}
