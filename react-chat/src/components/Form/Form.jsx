@@ -5,7 +5,7 @@ import { MaxIndex } from '../../utils';
 
 export const Form = (props) => {
   const [message, setMessage] = useState('');
-  let max_index = new MaxIndex();
+  let max_index = new MaxIndex(props.name);
   const handleKeyDown = event => {
     if (event.key === 'Enter') {
       event.preventDefault();
@@ -17,7 +17,7 @@ export const Form = (props) => {
           time_loc: now.toLocaleTimeString().slice(0, -3),
           message:  message
       };
-      localStorage.setItem(max_index.index,  JSON.stringify(loc));
+      localStorage.setItem(`${max_index.index}_${props.name}`,  JSON.stringify(loc));
       props.setIndex(max_index.index)
       setMessage('')
     }

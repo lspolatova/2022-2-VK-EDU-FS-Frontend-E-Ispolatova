@@ -1,32 +1,18 @@
 import React from "react";
-import { Chat_list, ChatPage } from "./pages";
+import { Chat_list, ChatPage, Profile } from "./pages";
+import {HashRouter, Route, Routes} from 'react-router-dom'
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            page: 'chat_list'
-        };
-        this.changePage = this.changePage.bind(this)
-        this.changePage_back = this.changePage_back.bind(this)
-    }
-    changePage() {
-      this.setState({
-        page: 'chat'
-      })
-    }
-    changePage_back() {
-        this.setState({
-          page: 'chat_list'
-        })
-    }
-
     render() {
-        if(this.state.page === 'chat_list'){
-            return(<Chat_list changePage = {this.changePage}/>)
-        }else{
-            return(<ChatPage changePage = {this.changePage_back}/>)
-        }
+        return(
+            <HashRouter>
+                <Routes>
+                    <Route path='/' element={<Chat_list/>}/>
+                    <Route path='/chat/:name' element={<ChatPage/>} />
+                    <Route path='/profile' element={<Profile/>}/>
+                </Routes>
+            </HashRouter>
+        )
     }
 }
 

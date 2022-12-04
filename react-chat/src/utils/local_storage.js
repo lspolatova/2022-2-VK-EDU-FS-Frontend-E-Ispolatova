@@ -1,7 +1,8 @@
 export class MaxIndex {
-    constructor() {
-        if(localStorage.getItem("max_index")){
-            this._index = localStorage.getItem("max_index");
+    constructor(name) {
+        this.name=name
+        if(localStorage.getItem(`max_index_${this.name}`)){
+            this._index = localStorage.getItem(`max_index_${this.name}`);
         }else{
             this.index = "-1"
         }
@@ -10,7 +11,7 @@ export class MaxIndex {
         return this._index;
     }
     set index(value) {
-        localStorage.setItem("max_index",  value);
+        localStorage.setItem(`max_index_${this.name}`,  value);
         this._index = value;
     }
 

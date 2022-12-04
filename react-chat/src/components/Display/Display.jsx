@@ -17,8 +17,8 @@ export function Display(props) {
 
     while(index_speech <= parseInt(props.index_max)){
         messages.push(<Message key = {index_speech}
-            message = {JSON.parse(localStorage.getItem(index_speech)).message}
-            time_loc = {JSON.parse(localStorage.getItem(index_speech)).time_loc}
+            message = {JSON.parse(localStorage.getItem(`${index_speech}_${props.name}`)).message}
+            time_loc = {JSON.parse(localStorage.getItem(`${index_speech}_${props.name}`)).time_loc}
         />);
         ++index_speech;
     }
