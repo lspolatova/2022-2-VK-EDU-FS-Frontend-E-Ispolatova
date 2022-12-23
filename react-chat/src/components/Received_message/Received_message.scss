@@ -1,0 +1,39 @@
+.message_receive {
+    margin: 1px;
+    font-size: 1.25rem;
+}
+
+.speech_receive {
+    background-color:rgb(237,237,237) ;
+    margin-top: auto;
+    margin-right: auto;
+    line-height:1.5;
+    width: max-content;
+    position: relative;
+    margin-left: 1.25rem;
+    margin-bottom: 1.25rem;
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 50%;
+    overflow-wrap: anywhere; 
+    display: flex;
+    flex-direction: column;
+    animation: appearance 2.5s forwards;
+    :before {
+        content: "";
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        border-left: 12px solid rgb(237,237,237);
+        border-right: 6px solid transparent;
+        border-top: 6px solid rgb(237,237,237);
+        border-bottom: 10px solid transparent;
+        left: 10px;
+        bottom: -12px;
+      }
+}
+
+@keyframes appearance {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
