@@ -1,35 +1,35 @@
 import { Chat } from "../";
 import "./List_chats.scss";
-import { MaxIndex } from "../../utils";
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react';
+import {useState} from 'react';
 
 export function List_chats(props) {
-    const chatEndRef = useRef(null)
-    let chat = [];
+    const [chat, setTheArray] = useState([]);
+    useEffect(() => {
+        fetch('http://127.0.0.1:7000/chats/list_add/')
+            .then(response => response.json())
+            .then(data => {
+                for (let get_chat in data){
+                    setTheArray(chat => [...chat, <Chat key = {data[get_chat].title}
+                                                        name = {data[get_chat].title}
+                                                        address = {`${"http://127.0.0.1:7000/chats/message_list_add/?id_chat="}${data[get_chat].id}`}
+                                                        id = {data[get_chat].id}
+                    />]);
+                }
+                setTheArray(chat => [...chat, <Chat key = {'tt-front'}
+                    name = {'tt-front'}
+                    address = {'https://tt-front.vercel.app/messages'}
+                    id = {'tt-front'}
+                />]);      
+            })
+    }, []); 
+    const chatEndRef = useRef(null);
     const scrollToBottom = () => {
         chatEndRef.current?.scrollIntoView({ behavior: "smooth" })
     }
     useEffect(() => {
         scrollToBottom()
     }, [chat]);
-    for (let i = 0; i < 20; i++) {
-        let max_index = new MaxIndex(`Дженнифер${i}`);
-        let last_message;
-        let last_time;
-        let colvo = (parseInt(max_index.index) + 1).toString();
-        if (localStorage.getItem(max_index.index)){
-            last_message = JSON.parse(localStorage.getItem(`${max_index.index}_Дженнифер${i}`)).message;
-            last_time = JSON.parse(localStorage.getItem(`${max_index.index}_Дженнифер${i}`)).time_loc;
-        }else{
-            last_message = last_time = "";
-        }
-        chat.push(<Chat key = {i}
-                      last_message = {last_message}
-                      last_time = {last_time}
-                      colvo = {colvo}
-                      name = {`Дженнифер${i}`}
-               />);
-    }
     return(
         <div className="list_chats">
             {chat}
