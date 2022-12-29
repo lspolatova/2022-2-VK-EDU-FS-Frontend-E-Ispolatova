@@ -2,13 +2,14 @@ import { Chat } from "../";
 import "./List_chats.scss";
 import React, { useEffect, useRef } from 'react';
 import {useState} from 'react';
+import { Centrifuge } from 'centrifuge';
 
 export function List_chats(props) {
     const [chat, setTheArray] = useState([]);
     useEffect(() => {
         fetch('http://127.0.0.1:7000/chats/list_add/')
             .then(response => response.json())
-            .then(data => {
+            .then(data => { 
                 for (let get_chat in data){
                     setTheArray(chat => [...chat, <Chat key = {data[get_chat].title}
                                                         name = {data[get_chat].title}
