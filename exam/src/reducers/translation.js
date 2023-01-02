@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
         case GET_TRANSLATION_SUCCESS:
             return{
                 loading: false,
-                translation:action.payload[0].translations[0].text,
+                translation:action.payload,
                 error: '',
             }
         case GET_TRANSLATION_FAILURE:

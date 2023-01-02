@@ -56,6 +56,10 @@ const getTranslationFailure = (message) => ({
 export const getTranslation = (text, lang) => {
     return ((dispatch, getState) => {
         dispatch(getTranslationStarted())
+        if(!lang){
+            dispatch(getTranslationSuccess("Выберите, пожалуйста, язык для перевода"))
+            return
+        }
         const options = {
             method: 'POST',
             headers: {
@@ -79,14 +83,7 @@ export const getTranslation = (text, lang) => {
                                 translate.push(text);
                                 translate.push(response[0].translations[0].text);
                                 localStorage.setItem(localStorage.getItem('colvo'), translate)
-                                dispatch(getTranslationSuccess(response))})
+                                dispatch(getTranslationSuccess(response[0].translations[0].text))})
             .catch(err => dispatch(getTranslationFailure(err.message))); 
     })
 }
-//if(localStorage.getItem('colvo')){
-   // localStorage.setItem('colvo',parseInt(localStorage.getItem)+1);
-//}else{
-   // localStorage.setItem('colvo',1)
-//}
-//let translate =[]
-//translate.push()
