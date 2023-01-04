@@ -6,8 +6,8 @@ export function Cap(props) {
     return (
         <div className={"Cap"}>
             DETECT LANGUAGE
-            <SelectLanguageConnect/>
-            <SelectLanguageConnect setLang = {props.setLang}/>
+            <SelectLanguageConnect setLang = {props.setLangFrom} type={'from'}/>
+            <SelectLanguageConnect setLang = {props.setLang} type={'to'}/>
         </div>      
     );
 }

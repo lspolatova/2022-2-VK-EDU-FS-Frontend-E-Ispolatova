@@ -8,7 +8,7 @@ export const Form = (props) => {
   const handleKeyDown = event => {
     if (event.key === 'Enter') {
       event.preventDefault();
-      props.getTranslation(message, props.lang)
+      props.getTranslation(message, props.lang, props.langFrom)
     }
   };
   return (

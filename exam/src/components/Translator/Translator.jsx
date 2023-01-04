@@ -4,10 +4,11 @@ import { useState } from "react";
 import { HistoryButton } from "../HistoryButton";
 export function Translator(props) {
     const [lang, setLang] = useState('');
+    const [langFrom, setLangFrom] = useState('');
     return (
         <div className={"Translator"}>
-            <Cap setLang={setLang}/>
-            <FormConnect lang={lang}/>
+            <Cap setLang={setLang} setLangFrom={setLangFrom}/>
+            <FormConnect lang={lang} langFrom = {langFrom}/>
             <HistoryButton/>
         </div>
     );

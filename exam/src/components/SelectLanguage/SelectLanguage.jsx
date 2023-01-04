@@ -16,12 +16,18 @@ function Options(props){
 }
 
 export function SelectLanguage(props) {
+    let first_item;
     useEffect(() => {
         props.getLanguage();
     }, []);
+    if(props.type=="from"){
+        first_item = "auto";
+    }else{
+        first_item = "language";
+    }
     return (
         <select name="language" className='SelectLanguage' onChange={(event) => props.setLang(event.target.value)}>
-            <option value="">language</option>
+            <option value="">{first_item}</option>
             <Options language = {props.language[0]}/>
         </select>    
     );
