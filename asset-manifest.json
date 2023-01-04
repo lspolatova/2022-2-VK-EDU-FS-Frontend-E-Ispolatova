@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/2022-2-VK-EDU-FS-Frontend-E-Ispolatova/static/css/main.5d6cb2e2.css",
-    "main.js": "/2022-2-VK-EDU-FS-Frontend-E-Ispolatova/static/js/main.2359e72d.js",
+    "main.js": "/2022-2-VK-EDU-FS-Frontend-E-Ispolatova/static/js/main.c2f8fd42.js",
     "static/js/787.b5aa3df0.chunk.js": "/2022-2-VK-EDU-FS-Frontend-E-Ispolatova/static/js/787.b5aa3df0.chunk.js",
     "index.html": "/2022-2-VK-EDU-FS-Frontend-E-Ispolatova/index.html",
     "main.5d6cb2e2.css.map": "/2022-2-VK-EDU-FS-Frontend-E-Ispolatova/static/css/main.5d6cb2e2.css.map",
-    "main.2359e72d.js.map": "/2022-2-VK-EDU-FS-Frontend-E-Ispolatova/static/js/main.2359e72d.js.map",
+    "main.c2f8fd42.js.map": "/2022-2-VK-EDU-FS-Frontend-E-Ispolatova/static/js/main.c2f8fd42.js.map",
     "787.b5aa3df0.chunk.js.map": "/2022-2-VK-EDU-FS-Frontend-E-Ispolatova/static/js/787.b5aa3df0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5d6cb2e2.css",
-    "static/js/main.2359e72d.js"
+    "static/js/main.c2f8fd42.js"
   ]
 }
