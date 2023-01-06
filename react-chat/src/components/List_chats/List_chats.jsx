@@ -1,29 +1,27 @@
-import { Chat } from "../";
+import ChatConnect from "../Chat/Chat";
 import "./List_chats.scss";
 import React, { useEffect, useRef } from 'react';
-import {useState} from 'react';
-import { Centrifuge } from 'centrifuge';
+import {connect} from 'react-redux';
+import { getChat } from '../../actions';
 
 export function List_chats(props) {
-    const [chat, setTheArray] = useState([]);
+    let chat = [];
     useEffect(() => {
-        fetch('http://127.0.0.1:7000/chats/list_add/')
-            .then(response => response.json())
-            .then(data => { 
-                for (let get_chat in data){
-                    setTheArray(chat => [...chat, <Chat key = {data[get_chat].title}
-                                                        name = {data[get_chat].title}
-                                                        address = {`${"http://127.0.0.1:7000/chats/message_list_add/?id_chat="}${data[get_chat].id}`}
-                                                        id = {data[get_chat].id}
-                    />]);
-                }
-                setTheArray(chat => [...chat, <Chat key = {'tt-front'}
+        Notification.requestPermission();
+        props.getChat()   
+    }, []); 
+    for (let get_chat in props.chat){
+        chat.push(<ChatConnect key = {props.chat[get_chat].title}
+                        name = {props.chat[get_chat].title}
+                        address = {`${"http://127.0.0.1:7000/chats/message_list_add/?id_chat="}${props.chat[get_chat].id}`}
+                        id = {props.chat[get_chat].id}
+                />)
+    }
+    chat.push(<ChatConnect key = {'tt-front'}
                     name = {'tt-front'}
                     address = {'https://tt-front.vercel.app/messages'}
                     id = {'tt-front'}
-                />]);      
-            })
-    }, []); 
+            />)     
     const chatEndRef = useRef(null);
     const scrollToBottom = () => {
         chatEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -38,3 +36,11 @@ export function List_chats(props) {
         </div>
     );
 }
+
+const mapStateProps = (state) => ({
+    chat: state.chat.chat,
+    loading: state.chat.loading
+})
+
+let List_chatConnect = connect(mapStateProps, {getChat})(List_chats);
+export default List_chatConnect;

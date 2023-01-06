@@ -6,14 +6,11 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import "./ChatPage.scss"
 import {useState} from 'react';
 import { useParams } from "react-router-dom";
+import DisplayConnect from "../../components/Display/Display";
 
 export function ChatPage(props) {
     const params = useParams();
     let remark = ((params.name == 'tt_chat') ? 'Общий чат' : 'была 2 часа назад');
-
-    if(params.name == 'tt-chat'){
-
-    }
     return (
        <div id = "ChatPage">
            <Cap>
@@ -27,7 +24,7 @@ export function ChatPage(props) {
                 <MoreVertIcon/>
                 {break_line}
            </Cap>
-           <Display name = {params.name} id = {params.name.split('_')[1]} />
+           <DisplayConnect name = {params.name} id = {params.name.split('_')[1]} />
            <Form name = {params.name} id = {params.name.split('_')[1]}/>
        </div>
     );
