@@ -1,4 +1,5 @@
-import { Cap, List_chats, edit, break_line } from "../../components";
+import { Cap, edit, break_line } from "../../components";
+import List_chatConnect from "../../components/List_chats/List_chats";
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import {Link} from 'react-router-dom'
@@ -13,7 +14,7 @@ export function Chat_list(props) {
                 <div className="page_name">Messenger</div>
                 <SearchIcon/>
            </Cap>
-           <List_chats/>
+           <List_chatConnect/>
            {break_line}
            {edit}
        </>
